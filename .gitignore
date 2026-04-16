@@ -1,7 +1,14 @@
 # IDE
 projects/ewarm/*.ewd
-projects/ewarm/build/**
+projects/ewarm/build/*.*
+projects/ewarm/build/browse/*
+projects/ewarm/build/list/*
+projects/ewarm/build/obj/*
+projects/ewarm/build/out/*
 projects/ewarm/c-stat/
 projects/ewarm/settings/
 
-!projects/ewarm/build/**/.gitkeep
+!projects/ewarm/build/browse/.gitkeep
+!projects/ewarm/build/list/.gitkeep
+!projects/ewarm/build/obj/.gitkeep
+!projects/ewarm/build/out/.gitkeep
