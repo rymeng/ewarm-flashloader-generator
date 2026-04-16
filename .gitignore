@@ -1,0 +1,7 @@
+# IDE
+projects/ewarm/*.ewd
+projects/ewarm/build/**
+projects/ewarm/c-stat/
+projects/ewarm/settings/
+
+!projects/ewarm/build/**/.gitkeep
