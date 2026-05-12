@@ -2,37 +2,37 @@
 
         SECTION .text:CODE:ROOT(2)
         PUBLIC  FlashInitEntry
+        PUBLIC  FlashSignoffEntry
         PUBLIC  FlashWriteEntry
         PUBLIC  FlashEraseWriteEntry
         PUBLIC  FlashChecksumEntry
-        PUBLIC  FlashSignoffEntry
-        EXTERN  init
-        EXTERN  program
-        EXTERN  erase_program
-        EXTERN  verify
-        EXTERN  deinit
+        EXTERN  mem_region_init
+        EXTERN  mem_region_deinit
+        EXTERN  mem_region_program
+        EXTERN  mem_region_erase_program
+        EXTERN  mem_region_verify
         THUMB
 FlashBreak:
         B       FlashBreak
 
 FlashInitEntry:
-        BL      init
+        BL      mem_region_init
         BL      FlashBreak
 
 FlashSignoffEntry:
-        BL      deinit
+        BL      mem_region_deinit
         BL      FlashBreak
 
 FlashWriteEntry:
-        BL      program
+        BL      mem_region_program
         BL      FlashBreak
 
 FlashEraseWriteEntry:
-        BL      erase_program
+        BL      mem_region_erase_program
         BL      FlashBreak
 
 FlashChecksumEntry:
-        BL      verify
+        BL      mem_region_verify
         BL      FlashBreak
 
         SECTION LOWEND:DATA(8)

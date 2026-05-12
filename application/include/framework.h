@@ -3,22 +3,23 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif
+#endif /* __cplusplus */
 
 #include <stdint.h>
 #include <string.h>
 
-#define RESULT_OK                   (0UL)
-#define RESULT_ERROR                (1UL)
+#define RESULT_OK            (0UL)
+#define RESULT_ERROR         (1UL)
 
-#define ALIGN(SIZE, BASE)           (((SIZE) + (BASE) - 1UL) & ~((BASE) - 1U))
+#define ALIGN(SIZE, BASE)    (    \
+    ((SIZE) + (BASE) - 1UL) & ~((BASE) - 1U))
 
-struct device_erase_buffer_info {
+struct mem_region_erase_sector {
     uint32_t base;
     uint32_t size;
 };
 
-struct device_handler {
+struct mem_region_handler {
     uint32_t base;
     union {
         uint32_t count;
@@ -29,14 +30,14 @@ struct device_handler {
     uint32_t size;
 };
 
-extern void init(void);
-extern void deinit(void);
-extern void program(void);
-extern void erase_program(void);
-extern void verify(void);
+extern void mem_region_init(void);
+extern void mem_region_deinit(void);
+extern void mem_region_program(void);
+extern void mem_region_erase_program(void);
+extern void mem_region_verify(void);
 
 #ifdef __cplusplus
 }
-#endif
+#endif /* __cplusplus */
 
 #endif /* FRAMEWORK_H */
